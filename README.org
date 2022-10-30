@@ -31,6 +31,8 @@ Only shows when the profile name is not "default".
 *** requirement
   - =window-indicator.uc.js=
   - An addon that will change =document.titlepreface=. I use [[https://addons.mozilla.org/en-US/firefox/addon/winger/][winger]] personally.
+*** screenshot
+  [[./screenshots/window-indicator.gif]]
 
 ** Sidebar related
 Only test on macOS, welcome PR for other OS.
@@ -43,6 +45,10 @@ I use [[https://addons.mozilla.org/en-US/firefox/addon/sidebery/][Sidebery]] per
    switch between normal tab bar, always-on sidebar, and auto-hidden sidebar.
    
    It creates a new toolbar button (it looks like the normal sidebar button because I don't have the creativity for a new one).
+
+   Left click: normal rotation.
+   
+   Right/Middle click: switch between always-on and auto-hidden.
    
 **** requirement
    - =window_control_placeholder_support.css=
