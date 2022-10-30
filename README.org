@@ -1,0 +1,13 @@
+#+TITLE: Firefox Tweaks
+
+* How to use
+1. install [[https://github.com/xiaoxiaoflood/firefox-scripts][userChromeJS manager from xiaoxiaoflood]]
+
+
+
+* Reference
+- [[https://github.com/xiaoxiaoflood/firefox-scripts][userChromeJS manager from xiaoxiaoflood]]
+- https://github.com/benzBrake/FirefoxCustomize
+- https://github.com/arkenfox/user.js
+- https://github.com/MrOtherGuy/firefox-csshacks
+- https://github.com/Timvde/UserChrome-Tweaks
