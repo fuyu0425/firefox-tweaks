@@ -1,14 +1,43 @@
 #+TITLE: Firefox Tweaks
 #+AUTHOR: yufu
 
+Only tested on macOS with latest Firefox Developer Edition
+
 * How to use
 1. install [[https://github.com/xiaoxiaoflood/firefox-scripts][userChromeJS manager from xiaoxiaoflood]]
 
+
+* How to use =uc.js files= in =ucjs= folder
+1. copy to your =chrome= folder in your profile folder
 
 * How to use CSS in =UserStyles= folder
 There are two ways
 1. install =StyloaiX= addon in [[https://github.com/xiaoxiaoflood/firefox-scripts][userChromeJS manager from xiaoxiaoflood]] (recommended)
 2. put the content in =userChrome.css=
+
+* Showcase
+** Profile Indicator
+*** requirement
+  - =profile-indicator.uc.js=
+  
+** Window Indicator
+*** requirement
+  - =window-indicator.uc.js=
+
+** Sidebar related
+Only test on macOS, welcome PR for other OS.
+*** hide tab bar when sidebar is enabled
+**** requirement
+   - =window_control_placeholder_support.css=
+   - =hide_tabs_toolbar_osx.css=
+*** sidebar switch
+   switch between normal tab bar, always-on sidebar, and auto-hidden sidebar
+**** requirement
+   - =window_control_placeholder_support.css=
+   - =hide_tabs_toolbar_osx.css=
+   - =sidebar_attribute.uc.js=
+   - =sidebar_autohide.uc.js=
+
 
 
 * Reference
