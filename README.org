@@ -50,7 +50,7 @@ I use [[https://addons.mozilla.org/en-US/firefox/addon/sidebery/][Sidebery]] per
    - =sidebar_attribute.uc.js=
    - =sidebar_autohide.uc.js=
 *** screenshot
-  [[./screenshosts/sidebar-autohide.gif]]
+  [[./screenshots/sidebar-autohide.gif]]
 
 
 * Reference
