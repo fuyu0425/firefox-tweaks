@@ -3,7 +3,6 @@
   :root[sidebarAutohide="true"] {
     --sidebar-hover-width: 20px;
     --sidebar-visible-width: 250px;
-    --uc-autohide-sidebar-delay: 600ms; /* Wait 0.6s before hiding sidebar */
   }
 
   

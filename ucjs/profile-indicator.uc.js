@@ -7,7 +7,12 @@
 // @onlyonce
 // ==/UserScript==
 
+var { AppConstants } = ChromeUtils.import(
+    "resource://gre/modules/AppConstants.jsm"
+);
+
 const { XPCOMUtils } = ChromeUtils.import('resource://gre/modules/XPCOMUtils.jsm');
+
 
 XPCOMUtils.defineLazyServiceGetter(
     this,
@@ -30,10 +35,13 @@ UC.ProfileIndicator = {
             return;
         }
 
-        const dockSupport = Cc["@mozilla.org/widget/macdocksupport;1"].getService(
-            Ci.nsIMacDockSupport
-        );
-        dockSupport.badgeText = name;
+        // badge app ICON on the dock in macOS
+        if (AppConstants.platform == "macosx") {
+            const dockSupport = Cc["@mozilla.org/widget/macdocksupport;1"].getService(
+                Ci.nsIMacDockSupport
+            );
+            dockSupport.badgeText = name;
+        }
 
         const { customElements, document, gBrowser } = win;
         let userProfileIcon = _uc.createElement(document, 'hbox', {
