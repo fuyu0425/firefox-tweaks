@@ -1,0 +1,36 @@
+@-moz-document url("chrome://browser/content/browser.xhtml") {
+
+  :root[sidebarAutohide="true"] {
+    --sidebar-hover-width: 20px;
+    --sidebar-visible-width: 250px;
+    --uc-autohide-sidebar-delay: 600ms; /* Wait 0.6s before hiding sidebar */
+  }
+
+  
+  :root[sidebarAutohide="true"] #sidebar-box {
+    position: relative !important;
+    overflow-x: hidden !important;
+    margin-right: calc(var(--sidebar-hover-width) * -1) !important;
+    min-width: var(--sidebar-hover-width) !important;
+    max-width: var(--sidebar-hover-width) !important;
+    border-right: 1px solid var(--sidebar-border-color);
+    z-index: 1;
+  }
+
+  :root[sidebarAutohide="true"] #sidebar-box:hover {
+    margin-right: calc(var(--sidebar-visible-width) * -1) !important;
+    min-width: var(--sidebar-visible-width) !important;
+    max-width: var(--sidebar-visible-width) !important;
+  }
+
+
+  :root[sidebarAutohide="true"] #sidebar {
+    opacity: 0 !important;
+  }
+
+  :root[sidebarAutohide="true"] #sidebar-box:hover #sidebar {
+    opacity: 1 !important;
+  }
+
+}
+

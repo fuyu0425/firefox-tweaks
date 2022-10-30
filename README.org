@@ -1,8 +1,14 @@
 #+TITLE: Firefox Tweaks
+#+AUTHOR: yufu
 
 * How to use
 1. install [[https://github.com/xiaoxiaoflood/firefox-scripts][userChromeJS manager from xiaoxiaoflood]]
 
+
+* How to use CSS in =UserStyles= folder
+There are two ways
+1. install =StyloaiX= addon in [[https://github.com/xiaoxiaoflood/firefox-scripts][userChromeJS manager from xiaoxiaoflood]] (recommended)
+2. put the content in =userChrome.css=
 
 
 * Reference

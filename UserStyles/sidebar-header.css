@@ -1,0 +1,6 @@
+@-moz-document url("chrome://browser/content/browser.xhtml") {
+  #sidebar-header {
+    display: none !important;
+  }
+}
+
