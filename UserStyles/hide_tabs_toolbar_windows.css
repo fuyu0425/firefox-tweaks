@@ -1,0 +1,39 @@
+:root[tabsintitlebar]:not([sidebarHidden="true"]){ --uc-toolbar-height: 40px; }
+:root[tabsintitlebar]:not([sidebarHidden="true"])[uidensity="compact"]{ --uc-toolbar-height: 32px }
+
+:root:not([sidebarHidden="true"]) #TabsToolbar{ visibility: collapse !important }
+
+:root:not([sidebarHidden="true"])[sizemode="fullscreen"] #TabsToolbar > :is(#window-controls,.titlebar-buttonbox-container){
+  visibility: visible !important;
+  z-index: 2;
+}
+
+:root:not([sidebarHidden="true"]):not([inFullscreen]) #nav-bar{
+  margin-top: calc(0px - var(--uc-toolbar-height,0px));
+}
+
+:root[tabsintitlebar]:not([sidebarHidden="true"]) #toolbar-menubar[autohide="true"]{
+  min-height: unset !important;
+  height: var(--uc-toolbar-height,0px) !important;
+  position: relative;
+}
+
+:root:not([sidebarHidden="true"]) #toolbar-menubar[autohide="false"]{
+  margin-bottom: var(--uc-toolbar-height,0px)
+}
+
+:root[tabsintitlebar]:not([sidebarHidden="true"]) #toolbar-menubar[autohide="true"] #main-menubar{
+  -moz-box-flex: 1;
+  -moz-box-align: stretch;
+  background-color: var(--toolbar-bgcolor,--toolbar-non-lwt-bgcolor);
+  background-clip: padding-box;
+  border-right: 30px solid transparent;
+  border-image: linear-gradient(to left, transparent, var(--toolbar-bgcolor,--toolbar-non-lwt-bgcolor) 30px) 20 / 30px
+}
+
+:root:not([sidebarHidden="true"]) #toolbar-menubar:not([inactive]){ z-index: 2 }
+:root:not([sidebarHidden="true"]) #toolbar-menubar[autohide="true"][inactive] > #menubar-items {
+  opacity: 0;
+  pointer-events: none;
+  margin-left: var(--uc-window-drag-space-pre,0px)
+}

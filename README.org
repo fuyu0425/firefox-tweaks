@@ -1,7 +1,7 @@
 #+TITLE: Firefox Tweaks
 #+AUTHOR: yufu
 
-Only tested on macOS with latest Firefox Developer Edition
+Only tested on macOS with latest Firefox Developer Edition and some works on Windows.
 
 * How to use
 1. install [[https://github.com/xiaoxiaoflood/firefox-scripts][userChromeJS manager from xiaoxiaoflood]]
@@ -40,7 +40,7 @@ I use [[https://addons.mozilla.org/en-US/firefox/addon/sidebery/][Sidebery]] per
 *** hide tab bar when sidebar is enabled
 **** requirement
    - =window_control_placeholder_support.css=
-   - =hide_tabs_toolbar_osx.css=
+   - =hide_tabs_toolbar_osx.css= or =hide_tabs_toolbar_windows.css= based on your operating systems
 *** sidebar switch
    switch between normal tab bar, always-on sidebar, and auto-hidden sidebar.
    
