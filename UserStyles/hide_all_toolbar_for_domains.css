@@ -1,0 +1,34 @@
+@-moz-document url("chrome://browser/content/browser.xhtml") {
+  :root[domain="www.youtube.com"]:not([sidebarHidden=true]) #navigator-toolbox,
+:root[domain="ani.gamer.com.tw"]:not([sidebarHidden=true]) #navigator-toolbox,
+:root[domain="www.twitch.tv"]:not([sidebarHidden=true]) #navigator-toolbox {
+    --toolbox-hover-width: 59px;
+  }
+  :root[domain="www.youtube.com"]:not([sidebarHidden=true]) .tabbrowser-tab[selected],
+:root[domain="ani.gamer.com.tw"]:not([sidebarHidden=true]) .tabbrowser-tab[selected],
+:root[domain="www.twitch.tv"]:not([sidebarHidden=true]) .tabbrowser-tab[selected] {
+    z-index: 3 !important;
+  }
+  :root[domain="www.youtube.com"][sidebarHidden=true] #navigator-toolbox,
+:root[domain="ani.gamer.com.tw"][sidebarHidden=true] #navigator-toolbox,
+:root[domain="www.twitch.tv"][sidebarHidden=true] #navigator-toolbox {
+    --toolbox-hover-width: 96px;
+  }
+  :root[domain="www.youtube.com"] #navigator-toolbox,
+:root[domain="ani.gamer.com.tw"] #navigator-toolbox,
+:root[domain="www.twitch.tv"] #navigator-toolbox {
+    position: relative !important;
+    margin-bottom: calc(var(--toolbox-hover-width) * -1) !important;
+    z-index: 1;
+  }
+  :root[domain="www.youtube.com"] #navigator-toolbox,
+:root[domain="ani.gamer.com.tw"] #navigator-toolbox,
+:root[domain="www.twitch.tv"] #navigator-toolbox {
+    opacity: 0 !important;
+  }
+  :root[domain="www.youtube.com"] #navigator-toolbox-background:hover #navigator-toolbox,
+:root[domain="ani.gamer.com.tw"] #navigator-toolbox-background:hover #navigator-toolbox,
+:root[domain="www.twitch.tv"] #navigator-toolbox-background:hover #navigator-toolbox {
+    opacity: 1 !important;
+  }
+}

@@ -1,0 +1,32 @@
+@-moz-document url("chrome://browser/content/browser.xhtml") {
+    :root[domain="www.youtube.com"],
+    :root[domain="ani.gamer.com.tw"],
+    :root[domain="www.twitch.tv"]{
+
+        &:not([sidebarHidden="true"]) {
+            #navigator-toolbox{
+            --toolbox-hover-width: 59px;
+            }
+        }
+
+        &[sidebarHidden="true"] #navigator-toolbox{
+            --toolbox-hover-width: 96px;
+        }
+
+        #navigator-toolbox {
+            position: relative !important;
+            // overflow-y: hidden !important;
+            margin-bottom: calc(var(--toolbox-hover-width) * -1) !important;
+            z-index: 1;
+        }
+
+        #navigator-toolbox {
+            opacity: 0 !important;
+        }
+
+        #navigator-toolbox-background:hover #navigator-toolbox {
+            opacity: 1 !important;
+        }
+
+    }
+}
