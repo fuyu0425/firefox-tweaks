@@ -1,10 +1,6 @@
 @-moz-document url("chrome://browser/content/browser.xhtml") {
-    #tabs-newtab-button, #alltabs-button, #new-tab-button {
+    #tabs-newtab-button, #alltabs-button, #new-tab-button,
+    #urlbar-zoom-button, #reader-mode-button  {
         display: none;
     }
-
-    #urlbar-zoom-button, #reader-mode-button {
-        display: none !important;
-    }
-
 }
