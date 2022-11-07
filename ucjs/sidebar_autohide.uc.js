@@ -44,12 +44,17 @@ UC.SidebarAutohide = {
 
     },
     onClick: function(e) {
-        if(e.which ==1 ) { // left click: normal
+        if (this.status != 'close') {
+            this.LAST_SIDEBAR_STATUS = this.status;
+        }
+        if(e.which ==1 ) { // left click: close / open or hide
             if (this.status == 'close'){
-                this.status = 'open';
-            }else if (this.status == 'open'){
-                this.status = 'hide';
-            }else if (this.status == 'hide') {
+                if (this.LAST_SIDEBAR_STATUS && this.LAST_SIDEBAR_STATUS != 'close') {
+                    this.status = this.LAST_SIDEBAR_STATUS;
+                } else {
+                    this.status = 'open';
+                }
+            }else if (this.status == 'open' || this.status == 'hide'){
                 this.status = 'close';
             }
         } else if (e.which == 2 || e.which == 3){ // middile click
@@ -66,7 +71,7 @@ UC.SidebarAutohide = {
     },
     handle: function(status) {
         _uc.windows((doc, win) => {
-            if (this.status == 'close'){
+            if (status == 'close'){
                 if (win.SidebarUI.isOpen){
                     win.SidebarUI.hide();
                 }
@@ -74,23 +79,27 @@ UC.SidebarAutohide = {
                 doc.documentElement.setAttribute('sidebarAutohide', 'false');
 
                 doc.getElementById(this.BUTTON_ID).removeAttribute('checked');
-            }else if (this.status == 'open'){
+            }else if (status == 'open'){
                 if (!win.SidebarUI.isOpen){
-                    if (win.SidebarUI.lastOpenedId) {
-                        win.SidebarUI.show(win.SidebarUI.lastOpenedId);
-                    } else {
                         win.SidebarUI.toggle();
-                    }
                 }
+
                 doc.documentElement.setAttribute('sidebarAutohide', 'false');
 
                 doc.getElementById(this.BUTTON_ID).setAttribute('checked', true);
-            }else if (this.status == 'hide') {
+            }else if (status == 'hide') {
+                if (!win.SidebarUI.isOpen){
+                    win.SidebarUI.toggle();
+                }
                 doc.documentElement.setAttribute('sidebarAutohide', 'true');
 
                 doc.getElementById(this.BUTTON_ID).setAttribute('checked', true);
             }
         });
+        if (this.status != status) {
+            this.status = status;
+            xPref.set(this.PREF_LAST_STATUS, this.status);
+        }
     },
     init: function() {
         _uc.sss.loadAndRegisterSheet(this.STYLE.url, this.STYLE.type);
@@ -108,6 +117,7 @@ UC.SidebarAutohide = {
         UC.SidebarAutohide.styles.forEach(s => s.parentNode.removeChild(s));
         delete UC.SidebarAutohide;
     },
+    LAST_SIDEBAR_STATUS : null,
     PREF_LAST_STATUS: 'userChromeJS.sidebarAutohide.lastStatus',
     BUTTON_ID: 'sidebar-autohide-button',
     STYLE: {
