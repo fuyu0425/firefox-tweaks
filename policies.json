@@ -1,0 +1,17 @@
+{
+    "policies": {
+        "AppAutoUpdate": false,
+        "DisableTelemetry": true,
+        "DisableAppUpdate": true,
+        "OverrideFirstRunPage": "",
+        "OverridePostUpdatePage": "",
+        "UserMessaging": {
+            "WhatsNew": false,
+            "ExtensionRecommendations": false,
+            "FeatureRecommendations": false,
+            "UrlbarInterventions": true,
+            "SkipOnboarding": true,
+            "MoreFromMozilla": false
+        }
+    }
+}
