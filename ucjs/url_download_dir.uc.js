@@ -19,8 +19,11 @@ UC.UrlDownloadDir = {
             // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions
             // /^https:\/\/arxiv\.org\//.test(document.URL) should return true in your console under arxiv
             rx: /^https:\/\/arxiv\.org\//,
-            // download dir
+            // download dir; syntax will be different based on OS.
             download_dir: '/Users/fuyu0425/Downloads/arxiv',
+            // windows example; you need to escape backslash
+            // download_dir: 'C:\\Users\\fuyu0425\\Downloads\\arxix',
+
         },
         // add next if needed
     ],
