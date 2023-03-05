@@ -22,7 +22,7 @@ UC.UrlDownloadDir = {
             // download dir
             download_dir: '/Users/fuyu0425/Downloads/arxiv',
         },
-
+        // add next if needed
     ],
     // default download dir
     default_download_dir: '/Users/fuyu0425/Downloads',
@@ -30,7 +30,6 @@ UC.UrlDownloadDir = {
         // default if not in rules
         let download_dir = this.default_download_dir;
         for (let site of this.sites){
-            console.log(site);
             // Match the first
             if (site.rx.test(url)) {
                 download_dir = site.download_dir;
