@@ -22,7 +22,12 @@ UC.UrlDownloadDir = {
             // download dir; syntax will be different based on OS.
             download_dir: '/Users/fuyu0425/Downloads/arxiv',
             // windows example; you need to escape backslash
-            // download_dir: 'C:\\Users\\fuyu0425\\Downloads\\arxix',
+            // download_dir: 'C:\\Users\\fuyu0425\\Downloads\\arxiv',
+
+        },
+        {
+            rx: /^https:\/\/docs\.google\.com\//,
+            download_dir: '/Users/fuyu0425/Downloads/google',
 
         },
         // add next if needed
@@ -39,6 +44,7 @@ UC.UrlDownloadDir = {
                 break;
             }
         }
+        xPref.set("browser.download.dir", download_dir);
         xPref.set("browser.download.lastDir", download_dir);
     },
     exec: function(win) {
