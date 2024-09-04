@@ -14,7 +14,6 @@ Window controls will be all wrong without it
 
 #main-window:not([sidebarHidden="true"]) #TabsToolbar > *{ visibility: collapse !important }
 
-:root[sizemode="fullscreen"] #TabsToolbar > #window-controls{ visibility: visible !important; z-index: 2 }
 #main-window:not([sidebarHidden="true"]) #TabsToolbar > .titlebar-buttonbox-container{
   visibility: visible !important;
   height:var(--uc-toolbar-height) !important;

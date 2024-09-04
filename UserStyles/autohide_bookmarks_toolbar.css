@@ -3,7 +3,7 @@ See the above repository for updates as well as full license text. */
 
 #PersonalToolbar{
   --uc-bm-height: 20px; /* Might need to adjust if the toolbar has other buttons */
-  --uc-bm-padding: 7px; /* Vertical padding to be applied to bookmarks */
+  --uc-bm-padding: 3px; /* Vertical padding to be applied to bookmarks */
   --uc-autohide-toolbar-delay: 600ms; /* The toolbar is hidden after 0.6s */
   
   /* 0deg = "show" ; 90deg = "hide" ;  Set the following to control when bookmarks are shown */
@@ -11,12 +11,11 @@ See the above repository for updates as well as full license text. */
   --uc-autohide-toolbar-hover-rotation: 0deg; /* cursor is over the toolbar area */
 }
 
-:root[uidensity="compact"] #PersonalToolbar{ --uc-bm-padding: 1px; }
 :root[uidensity="touch"] #PersonalToolbar{ --uc-bm-padding: 7px }
 
 #PersonalToolbar:not([customizing]){
   position: relative;
-  margin-bottom: calc(0px - var(--uc-bm-height) - 2 * var(--uc-bm-padding));
+  margin-bottom: calc(-1px - var(--uc-bm-height) - 2 * var(--uc-bm-padding));
   transform: rotateX(90deg);
   transform-origin: top;
   transition: transform 135ms linear var(--uc-autohide-toolbar-delay) !important;
@@ -24,12 +23,15 @@ See the above repository for updates as well as full license text. */
   /* The following properties should allow the themes with trasparent toolbars to work */
   background-color: transparent !important;
   background-repeat: no-repeat,no-repeat,var(--lwt-background-tiling);
-  --uc-bg-y: calc(-2 * (var(--tab-block-margin) + var(--toolbarbutton-inner-padding) + var(--toolbarbutton-outer-padding)) - var(--tab-min-height) - 16px - var(--bookmark-block-padding));
+    /* y position will be wrong if menubar is enabled... */
+  --uc-bg-y: calc(-2 * (var(--tab-block-margin) + var(--toolbarbutton-inner-padding) + var(--toolbarbutton-outer-padding)) - var(--tab-min-height) - 24px - var(--bookmark-block-padding));
   background-position: top left,top left,var(--lwt-background-alignment,top left);
   background-position-y:top,top,var(--uc-bg-y),var(--uc-bg-y),var(--uc-bg-y);
-  background-image: var(--toolbar-bgimage), linear-gradient(var(--toolbar-bgcolor),var(--toolbar-bgcolor)),var(--lwt-header-image,var(--lwt-additional-images)) !important;
+  background-image: var(--toolbar-bgimage,linear-gradient(transparent,transparent)), linear-gradient(var(--toolbar-bgcolor),var(--toolbar-bgcolor)),var(--lwt-header-image,var(--lwt-additional-images)) !important;
 }
-
+:root[uidensity="compact"] #PersonalToolbar{
+  --toolbarbutton-outer-padding: 1px !important;
+}
 #PlacesToolbarItems > .bookmark-item,
 #OtherBookmarks,
 #PersonalToolbar > #import-button{
@@ -40,7 +42,9 @@ See the above repository for updates as well as full license text. */
   transition-delay: 100ms !important;
   transform: rotateX(var(--uc-autohide-toolbar-focus-rotation,0));
 }
-
+#navigator-toolbox:is(:hover,:focus-within){
+  border-bottom-color: transparent !important;
+}
 #navigator-toolbox:hover > #PersonalToolbar{
   transition-delay: 100ms !important;
   transform: rotateX(var(--uc-autohide-toolbar-hover-rotation,0));

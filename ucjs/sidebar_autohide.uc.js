@@ -7,7 +7,6 @@
 // @onlyonce
 // ==/UserScript==
 
-const { XPCOMUtils } = ChromeUtils.import('resource://gre/modules/XPCOMUtils.jsm');
 
 UC.SidebarAutohide = {
     exec: function(win) {
@@ -72,24 +71,24 @@ UC.SidebarAutohide = {
     handle: function(status) {
         _uc.windows((doc, win) => {
             if (status == 'close'){
-                if (win.SidebarUI.isOpen){
-                    win.SidebarUI.hide();
+                if (win.SidebarController.isOpen){
+                    win.SidebarController.hide();
                 }
 
                 doc.documentElement.setAttribute('sidebarAutohide', 'false');
 
                 doc.getElementById(this.BUTTON_ID).removeAttribute('checked');
             }else if (status == 'open'){
-                if (!win.SidebarUI.isOpen){
-                        win.SidebarUI.toggle();
+                if (!win.SidebarController.isOpen){
+                        win.SidebarController.toggle();
                 }
 
                 doc.documentElement.setAttribute('sidebarAutohide', 'false');
 
                 doc.getElementById(this.BUTTON_ID).setAttribute('checked', true);
             }else if (status == 'hide') {
-                if (!win.SidebarUI.isOpen){
-                    win.SidebarUI.toggle();
+                if (!win.SidebarController.isOpen){
+                    win.SidebarController.toggle();
                 }
                 doc.documentElement.setAttribute('sidebarAutohide', 'true');
 
@@ -128,7 +127,7 @@ UC.SidebarAutohide = {
           }
         }
       `)),
-        type: _uc.sss.AUTHOR_SHEET
+        type: _uc.sss.USER_SHEET
     },
     status: 'close',
     style: `
